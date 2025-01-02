@@ -6,9 +6,12 @@ export const AppLabel = ({
   labelName,
   labelPlaceholder,
   labelError,
+  inputValue,
+  inputChange,
+  hasError
 }) => {
   return (
-    <label className="input-wrapper" htmlFor={labelName}>
+    <label className={`input-wrapper ${hasError && "_error"}`} htmlFor={labelName}>
       {labelText}
       <input
         required
@@ -16,10 +19,11 @@ export const AppLabel = ({
         name={labelName}
         id={labelName}
         placeholder={labelPlaceholder}
+        value={inputValue}
+        onChange={(e)=>inputChange(e.target.value)}
       />
-      <span className="error-message" id={`${labelName}-error`}>
-        {labelError}
-      </span>
-    </label>
+
+{hasError && <span id="error-message">{labelError}</span>}
+</label>
   );
 };

@@ -1,12 +1,13 @@
 import React from "react";
 import ProgressBar from "../component/ProgressBar";
+import { Link } from "react-router-dom";
 
 const StepOne = () => {
   return (
     <div className="container">
       <div className="wrapper">
         <div className="single-input-quiz">
-          <ProgressBar/>
+          <ProgressBar currentStep={1}/>
           <div className="question">
             <h2>1. Занимательный вопрос</h2>
             <label className="input-wrapper">
@@ -20,9 +21,12 @@ const StepOne = () => {
                 Введите номер в правильном формате например
               </span>
             </label>
-            <button type="button" disabled id="next-btn">
+
+           <Link to="/step-two">
+            <button type="button" id="next-btn">
               Далее
             </button>
+            </Link>
           </div>
         </div>
       </div>
