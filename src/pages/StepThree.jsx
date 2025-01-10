@@ -1,5 +1,6 @@
 import React from "react";
 import ProgressBar from "../component/ProgressBar";
+import { Link } from "react-router-dom";
 
 const StepThree = () => {
   return (
@@ -39,9 +40,13 @@ const StepThree = () => {
                 </label>
               </li>
             </ul>
-            <button type="button" disabled id="next-btn">
-              Далее
-            </button>
+
+            <Link to="/step-four">
+  <button type="button" id="next-btn">
+    Далее
+  </button>
+</Link>
+
           </div>
         </div>
       </div>
