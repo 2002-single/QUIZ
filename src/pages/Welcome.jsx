@@ -1,11 +1,16 @@
 
-import React, {useEffect,useState} from "react";
+import React, {useEffect,useState, useContext} from "react";
 import Header from "../component/Header";
 import { AppLabel } from "../component/AppLable";
 import {AppButton} from "../component/AppButton";
 import {Link, link, useNavigate} from "react-router-dom";
+import { ThemeContext,themes } from "../contexts/themeContext";
+
 const Welcome = () => {
 
+
+
+  const {theme,toggleTheme} = useContext(ThemeContext)
   const RegexPhone = /^\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/
   const RegexName = /^[a-zA-Zа-яА-ЯёЁ\s]+$/
 
@@ -47,9 +52,16 @@ useEffect(()=> {
 
 
   return (
-    <div className="container">
+    <div className={`container ${theme === themes.dark && "_dark"}`}>
       <div className="wrapper">
         <div className="welcome">
+
+
+          <AppButton buttonType = "button"
+          buttonClick={toggleTheme}
+          
+          buttonText={theme===themes.dark ? "Темная тема": "Светлая тема"}
+          />
           <Header
            headerText="Добро пожаловать в квиз от лучшего учебного центра" />
           <form className="welcome__form">

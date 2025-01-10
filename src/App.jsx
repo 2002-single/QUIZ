@@ -9,6 +9,7 @@ import Thanks from "./pages/Thanks";
 
 import "./styles/main.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./contexts/themeProvider";
 
 const router = createBrowserRouter([
 {
@@ -40,9 +41,12 @@ const router = createBrowserRouter([
 
 const App = () => {
   return(
-    <RouterProvider router={router}>
+    <ThemeProvider>
+ <RouterProvider router={router}>
       <div className="App"/>
     </RouterProvider>
+    </ThemeProvider>
+   
   );
 }
 
